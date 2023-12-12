@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_tutorial/utils/colors.dart';
+import 'package:instagram_tutorial/widgets/comment_card.dart';
 
 class CommentsPage extends StatefulWidget {
   const CommentsPage({super.key});
@@ -19,7 +20,7 @@ class _CommentsPageState extends State<CommentsPage> {
       ),
 
       // Comment card
-      body: CommentsPage(),
+      body: CommentCard(),
       bottomNavigationBar: SafeArea(
         child: Container(
           height: kToolbarHeight,
