@@ -19,7 +19,7 @@ class _CommentsPageState extends State<CommentsPage> {
       ),
 
       // Comment card
-      body: ,
+      body: CommentsPage(),
       bottomNavigationBar: SafeArea(
         child: Container(
           height: kToolbarHeight,
