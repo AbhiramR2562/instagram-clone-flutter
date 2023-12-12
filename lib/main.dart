@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
                 ),
               );
             }
-            return CommentsPage();
+            return LoginPage();
           },
         ),
       ),
