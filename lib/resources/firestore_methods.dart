@@ -91,4 +91,13 @@ class FireStoreMethods {
       );
     }
   }
+
+  //Deleting post
+  Future<void> deletePost(String postid) async {
+    try {
+      await _firestore.collection('posts').doc(postid).delete();
+    } catch (err) {
+      print(err.toString());
+    }
+  }
 }

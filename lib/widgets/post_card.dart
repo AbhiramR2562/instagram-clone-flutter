@@ -92,7 +92,7 @@ class _PostCardState extends State<PostCard> {
                   ),
                 ),
 
-                // option
+                // Delete option
                 IconButton(
                   onPressed: () {
                     showDialog(
@@ -108,7 +108,11 @@ class _PostCardState extends State<PostCard> {
                           ]
                               .map(
                                 (e) => InkWell(
-                                  onTap: () {},
+                                  onTap: () async {
+                                    FireStoreMethods()
+                                        .deletePost(widget.snap['postid']);
+                                    Navigator.of(context).pop();
+                                  },
                                   child: Container(
                                     padding: EdgeInsets.symmetric(
                                         vertical: 12, horizontal: 16),
