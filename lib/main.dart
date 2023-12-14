@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:instagram_tutorial/pages/comments_page.dart';
 import 'package:instagram_tutorial/pages/login_page.dart';
 import 'package:instagram_tutorial/pages/register_page.dart';
+import 'package:instagram_tutorial/pages/search_page.dart';
 import 'package:instagram_tutorial/providers/user_provider.dart';
 import 'package:instagram_tutorial/responsive/mobile_page_layout.dart';
 import 'package:instagram_tutorial/responsive/responsive_layout_page.dart';
