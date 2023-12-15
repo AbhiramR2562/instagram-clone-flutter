@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:instagram_tutorial/pages/comments_page.dart';
 import 'package:instagram_tutorial/pages/login_page.dart';
+import 'package:instagram_tutorial/pages/profile_page.dart';
 import 'package:instagram_tutorial/pages/register_page.dart';
 import 'package:instagram_tutorial/pages/search_page.dart';
 import 'package:instagram_tutorial/providers/user_provider.dart';
