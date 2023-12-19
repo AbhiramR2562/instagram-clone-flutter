@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_tutorial/resources/firestore_methods.dart';
 import 'package:instagram_tutorial/utils/colors.dart';
 import 'package:instagram_tutorial/utils/util.dart';
 import 'package:instagram_tutorial/widgets/follow_button.dart';
@@ -125,14 +126,40 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 borderColor: Colors.grey,
                                                 text: 'Unfollow',
                                                 textColor: Colors.black,
-                                                function: () {},
+                                                function: () async {
+                                                  await FireStoreMethods()
+                                                      .followUser(
+                                                    FirebaseAuth.instance
+                                                        .currentUser!.uid,
+                                                    userData['uid'],
+                                                  );
+                                                  // We can see th echanges in screen
+                                                  setState(() {
+                                                    isFollowing = false;
+                                                    // now increase the followers
+                                                    followers--;
+                                                  });
+                                                },
                                               )
                                             : FollowButton(
                                                 backgroundColor: Colors.blue,
                                                 borderColor: Colors.blue,
                                                 text: 'Follow',
                                                 textColor: Colors.white,
-                                                function: () {},
+                                                function: () async {
+                                                  await FireStoreMethods()
+                                                      .followUser(
+                                                    FirebaseAuth.instance
+                                                        .currentUser!.uid,
+                                                    userData['uid'],
+                                                  );
+                                                  // We can see th echanges in screen
+                                                  setState(() {
+                                                    isFollowing = true;
+                                                    // now increase the followers
+                                                    followers++;
+                                                  });
+                                                },
                                               ),
                                   ],
                                 ),
