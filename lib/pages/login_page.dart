@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_tutorial/pages/register_page.dart';
 import 'package:instagram_tutorial/resources/auth_methods.dart';
+import 'package:instagram_tutorial/utils/gloabal_variables.dart';
 import 'package:instagram_tutorial/utils/util.dart';
 import 'package:instagram_tutorial/widgets/text_field_input.dart';
 
@@ -71,7 +72,10 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
+          padding: MediaQuery.of(context).size.width > webPageSize
+              ? EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width / 3)
+              : const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_tutorial/pages/login_page.dart';
+import 'package:instagram_tutorial/resources/auth_methods.dart';
 import 'package:instagram_tutorial/resources/firestore_methods.dart';
 import 'package:instagram_tutorial/utils/colors.dart';
 import 'package:instagram_tutorial/utils/util.dart';
 import 'package:instagram_tutorial/widgets/follow_button.dart';
+import 'package:instagram_tutorial/widgets/custom_tile.dart';
 
 class ProfilePage extends StatefulWidget {
   final String uid;
@@ -78,6 +81,31 @@ class _ProfilePageState extends State<ProfilePage> {
               backgroundColor: mobileBackgroundColor,
               title: Text(userData['username']),
               centerTitle: false,
+            ),
+            //-> Drawer
+            endDrawer: Drawer(
+              backgroundColor: const Color.fromARGB(255, 38, 38, 38),
+              child: ListView(
+                children: [
+                  CustomTile(
+                    text: 'Settings',
+                    icon: Icons.settings,
+                    onTap: () {},
+                  ),
+                  CustomTile(
+                    text: 'Sign Out',
+                    icon: Icons.logout,
+                    onTap: () async {
+                      await AuthMethods().signOut();
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => const LoginPage(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
             body: ListView(
               children: [
